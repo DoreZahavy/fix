@@ -8,7 +8,8 @@ const WEBSITE_KEY = 'websiteDB'
   providedIn: 'root'
 })
 export class ApiService {
-  http = inject(HttpClient)
+  // http = inject(HttpClient)
+  // httpsa = inject(HttpClient)
   constructor() { }
 
   getWebsites() {
@@ -18,8 +19,8 @@ export class ApiService {
     )
 }
 
-getWebsite(websiteId: string){
-  return from(storageService.get<Website>(WEBSITE_KEY, websiteId)).pipe(retry(1))
+getWebsite(urlName: string){
+  return from(storageService.get<Website>(WEBSITE_KEY, urlName)).pipe(retry(1))
 }
 
 removeWebsite(websiteId: string) {

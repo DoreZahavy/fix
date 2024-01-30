@@ -1,1 +1,10 @@
 <p>website-details works!</p>
+<div>{{ website() | json }}</div>
+@if(website(); as website){
+
+<container [container]="website.header" />
+
+<website-route [route]="website.routes | findRoute : website.urlName : routeName" />
+
+<container [container]="website.footer" />
+}

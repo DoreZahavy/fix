@@ -5,6 +5,8 @@ import { Subject, catchError, concatMap, share, switchMap, take, throwError } fr
 import { Website } from '../models/website.model';
 import { Errors } from '../models/errors';
 import { HttpErrorResponse } from '@angular/common/http';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+
 const WEBSITE_KEY = 'websiteDB'
 
 @Injectable({
@@ -33,7 +35,7 @@ export class WebsiteService {
 
 
   website$ = this._getWebsite$.pipe(
-    switchMap(websiteId => this.apiService.getWebsite(websiteId)),
+    switchMap(urlName => this.apiService.getWebsite(urlName)),
     catchError(err => this._handleError(err, 'save')),
     share()
   )
@@ -49,18 +51,46 @@ export class WebsiteService {
     if (!websites || websites.length === 0) {
       localStorage.setItem(WEBSITE_KEY, JSON.stringify(this._createWebsites()))
     }
+
+    this.savedWebsite$.pipe(takeUntilDestroyed())
+      .subscribe({
+        next: ({ website, isAdded }) => {
+          // this.website.update(pets => {
+          //     return isAdded
+          //         ? [...pets, pet]
+          //         : pets.map(p => p._id === pet._id ? pet : p);
+          // })
+          this.website.set(website)
+        },
+        error: (err) => {
+          console.log({ err })
+        }
+
+      })
+    this.website$.pipe(takeUntilDestroyed())
+      .subscribe({
+        next: (website) => {
+
+          this.website.set(website)
+        },
+        error: (err) => {
+          console.log({ err })
+        }
+
+      })
   }
 
 
   public save(website: Website) {
     this._saveWebsite$.next(website)
     return this.savedWebsite$.pipe(take(1))
-}
+  }
 
-  public getById(websiteId: string) {
-    this._getWebsite$.next(websiteId)
+  public getByName(urlName: string) {
+    console.log("🚀 ~ WebsiteService ~ getByName ~ urlName:", urlName)
+    this._getWebsite$.next(urlName)
     return this.website$.pipe(take(1))
-}
+  }
 
   public cleanErrors(errorType?: keyof Errors) {
     this.errors.update(errors => {
@@ -88,85 +118,50 @@ export class WebsiteService {
 
   private _createWebsites() {
     const websites: Website[] = [
-    {
-      _id: 'asada',
-      name: 'new proj title',
-      userId: 'doreZ',
-      header: {
-        _id: 'sdgsdgsd',
-        columns: [
-          {
-            _id: '235235',
-            cmps: [
-              {
-                _id: '1',
-                type: 'txt',
-                info: {
-                  text: 'Sample text'
-                },
-                style: {
-                  fontSize: '16px',
-                  color: '#000000'
-                }
-              },
-              {
-                _id: '2',
-                type: 'image',
-                info: {
-                  src: 'path/to/image.jpg',
-                  alt: 'Sample image'
-                },
-                style: {
-                  width: '100%',
-                  height: 'auto'
-                }
-              }
-            ]
-          }
-        ]
-      },
-      routes:
-        [{
-          name: 'about',
-          containers: [{
-            _id: 'sdgsdgsd',
-            columns: [
-              {
-                _id: '235235',
-                cmps: [
-                  {
-                    _id: '1',
-                    type: 'txt',
-                    info: {
-                      text: 'Sample text'
-                    },
-                    style: {
-                      fontSize: '16px',
-                      color: '#000000'
-                    }
+      {
+        _id: 'asada',
+        name: 'new proj title',
+        urlName: 'new-proj-title',
+        userId: 'doreZ',
+        defaultRoute:'home',
+        header: {
+          _id: 'sdgsdgsd',
+          columns: [
+            {
+              _id: '235235',
+              cmps: [
+                {
+                  _id: '1',
+                  type: 'txt',
+                  info: {
+                    text: 'Sample text'
                   },
-                  {
-                    _id: '2',
-                    type: 'image',
-                    info: {
-                      src: 'path/to/image.jpg',
-                      alt: 'Sample image'
-                    },
-                    style: {
-                      width: '100%',
-                      height: 'auto'
-                    }
+                  style: {
+                    fontSize: '16px',
+                    color: '#000000'
                   }
-                ]
-              }
-            ]
-          }
+                },
+                {
+                  _id: '2',
+                  type: 'image',
+                  info: {
+                    src: 'path/to/image.jpg',
+                    alt: 'Sample image'
+                  },
+                  style: {
+                    width: '100%',
+                    height: 'auto'
+                  }
+                }
+              ]
+            }
           ]
         },
-        {
-          name: 'home',
-          containers: [
-            {
+        routes:
+          [{
+            name: 'about',
+            urlName: 'about',
+            containers: [{
               _id: 'sdgsdgsd',
               columns: [
                 {
@@ -199,127 +194,131 @@ export class WebsiteService {
                 }
               ]
             }
-          ]
-        }]
-      ,
-      footer: {
-
-        _id: 'sdgsdgsd',
-
-
-        columns: [
-          {
-            _id: '235235',
-            cmps: [
-              {
-                _id: '1',
-                type: 'txt',
-                info: {
-                  text: 'Sample text'
-                },
-                style: {
-                  fontSize: '16px',
-                  color: '#000000'
-                }
-              },
-              {
-                _id: '2',
-                type: 'image',
-                info: {
-                  src: 'path/to/image.jpg',
-                  alt: 'Sample image'
-                },
-                style: {
-                  width: '100%',
-                  height: 'auto'
-                }
-              }
             ]
-          }
-        ]
-
-
-      }
-    },
-    {
-      _id: 'sddfjrfgj',
-      name: 'new proj title2',
-      userId: 'moishesdsdg',
-      header: {
-        _id: 'thrth',
-        columns: [
+          },
           {
-            _id: 'erhh',
-            cmps: [
+            name: 'home',
+            urlName: 'home',
+            containers: [
               {
-                _id: 'dfhd',
-                type: 'txt',
-                info: {
-                  text: 'Sample text'
-                },
-                style: {
-                  fontSize: '16px',
-                  color: '#000000'
-                }
-              },
-              {
-                _id: '2',
-                type: 'image',
-                info: {
-                  src: 'path/to/image.jpg',
-                  alt: 'Sample image'
-                },
-                style: {
-                  width: '100%',
-                  height: 'auto'
-                }
-              }
-            ]
-          }
-        ]
-      },
-      routes:
-        [{
-          name: 'about',
-          sections: [{
-            _id: 'sdgsdgsd',
-            columns: [
-              {
-                _id: '235235',
-                cmps: [
+                _id: 'sdgsdgsd',
+                columns: [
                   {
-                    _id: '1',
-                    type: 'txt',
-                    info: {
-                      text: 'Sample text'
-                    },
-                    style: {
-                      fontSize: '16px',
-                      color: '#000000'
-                    }
-                  },
-                  {
-                    _id: '2',
-                    type: 'image',
-                    info: {
-                      src: 'path/to/image.jpg',
-                      alt: 'Sample image'
-                    },
-                    style: {
-                      width: '100%',
-                      height: 'auto'
-                    }
+                    _id: '235235',
+                    cmps: [
+                      {
+                        _id: '1',
+                        type: 'txt',
+                        info: {
+                          text: 'Sample text'
+                        },
+                        style: {
+                          fontSize: '16px',
+                          color: '#000000'
+                        }
+                      },
+                      {
+                        _id: '2',
+                        type: 'image',
+                        info: {
+                          src: 'path/to/image.jpg',
+                          alt: 'Sample image'
+                        },
+                        style: {
+                          width: '100%',
+                          height: 'auto'
+                        }
+                      }
+                    ]
                   }
                 ]
               }
             ]
-          }
+          }]
+        ,
+        footer: {
+
+          _id: 'sdgsdgsd',
+
+
+          columns: [
+            {
+              _id: '235235',
+              cmps: [
+                {
+                  _id: '1',
+                  type: 'txt',
+                  info: {
+                    text: 'Sample text'
+                  },
+                  style: {
+                    fontSize: '16px',
+                    color: '#000000'
+                  }
+                },
+                {
+                  _id: '2',
+                  type: 'image',
+                  info: {
+                    src: 'path/to/image.jpg',
+                    alt: 'Sample image'
+                  },
+                  style: {
+                    width: '100%',
+                    height: 'auto'
+                  }
+                }
+              ]
+            }
+          ]
+
+
+        }
+      },
+      {
+        _id: 'sddfjrfgj',
+        name: 'new proj title2',
+        urlName: 'my-website',
+        defaultRoute:'about',
+        userId: 'moishesdsdg',
+        header: {
+          _id: 'thrth',
+          columns: [
+            {
+              _id: 'erhh',
+              cmps: [
+                {
+                  _id: 'dfhd',
+                  type: 'txt',
+                  info: {
+                    text: 'Sample text'
+                  },
+                  style: {
+                    fontSize: '16px',
+                    color: '#000000'
+                  }
+                },
+                {
+                  _id: '2',
+                  type: 'image',
+                  info: {
+                    src: 'path/to/image.jpg',
+                    alt: 'Sample image'
+                  },
+                  style: {
+                    width: '100%',
+                    height: 'auto'
+                  }
+                }
+              ]
+            }
           ]
         },
-        {
-          name: 'home',
-          sections: [
-            {
+        routes:
+          [{
+            name: 'about',
+            urlName: 'about',
+            containers: [{
               _id: 'sdgsdgsd',
               columns: [
                 {
@@ -352,49 +351,88 @@ export class WebsiteService {
                 }
               ]
             }
-          ]
-        }]
-      ,
-      footer: {
-
-        _id: 'sdgsdgsd',
-
-
-        columns: [
+            ]
+          },
           {
-            _id: '235235',
-            cmps: [
+            name: 'home',
+            urlName: 'home',
+            containers: [
               {
-                _id: '1',
-                type: 'txt',
-                info: {
-                  text: 'Sample text'
-                },
-                style: {
-                  fontSize: '16px',
-                  color: '#000000'
-                }
-              },
-              {
-                _id: '2',
-                type: 'image',
-                info: {
-                  src: 'path/to/image.jpg',
-                  alt: 'Sample image'
-                },
-                style: {
-                  width: '100%',
-                  height: 'auto'
-                }
+                _id: 'sdgsdgsd',
+                columns: [
+                  {
+                    _id: '235235',
+                    cmps: [
+                      {
+                        _id: '1',
+                        type: 'txt',
+                        info: {
+                          text: 'Sample text'
+                        },
+                        style: {
+                          fontSize: '16px',
+                          color: '#000000'
+                        }
+                      },
+                      {
+                        _id: '2',
+                        type: 'image',
+                        info: {
+                          src: 'path/to/image.jpg',
+                          alt: 'Sample image'
+                        },
+                        style: {
+                          width: '100%',
+                          height: 'auto'
+                        }
+                      }
+                    ]
+                  }
+                ]
               }
             ]
-          }
-        ]
+          }]
+        ,
+        footer: {
+
+          _id: 'sdgsdgsd',
 
 
+          columns: [
+            {
+              _id: '235235',
+              cmps: [
+                {
+                  _id: '1',
+                  type: 'txt',
+                  info: {
+                    text: 'Sample text'
+                  },
+                  style: {
+                    fontSize: '16px',
+                    color: '#000000'
+                  }
+                },
+                {
+                  _id: '2',
+                  type: 'image',
+                  info: {
+                    src: 'path/to/image.jpg',
+                    alt: 'Sample image'
+                  },
+                  style: {
+                    width: '100%',
+                    height: 'auto'
+                  }
+                }
+              ]
+            }
+          ]
+
+
+        }
       }
-    }
-  ]
+    ]
     return websites
   }
 

@@ -1,0 +1,5 @@
+<p>column works!</p>
+<div>{{column | json}}</div>
+@for (cmp of column.cmps;track cmp._id){
+    <!-- <ng-container *[ngComponentOutlet]="cmp.type + '-cmp';"/> -->
+}

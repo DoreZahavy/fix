@@ -26,6 +26,11 @@ export const routes: Routes = [
         // resolve: { pet: petResolver }
     },
     {
+        path: ':name/:route',
+        component: WebsiteDetailsComponent,
+        canActivate: [authGuard],
+    },
+    {
         path: ':name',
         component: WebsiteDetailsComponent,
         canActivate: [authGuard],

@@ -1,0 +1,5 @@
+<p>container works!</p>
+<div>{{container | json}}</div>
+@for (column of container.columns; track column._id){
+    <column [column]="column" />
+}

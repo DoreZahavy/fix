@@ -10,6 +10,7 @@ export const storageService = {
 
 interface EntityId {
     _id: string
+    urlName: string
 }
 
 async function query<T>(entityType: string, delay = 100): Promise<T[]> {
@@ -20,10 +21,10 @@ async function query<T>(entityType: string, delay = 100): Promise<T[]> {
     return entities
 }
 
-async function get<T extends EntityId>(entityType: string, entityId: string): Promise<T> {
+async function get<T extends EntityId>(entityType: string, entityUrlName: string): Promise<T> {
     const entities = await query<T>(entityType)
-    const entity = entities.find(entity => entity._id === entityId)
-    if (!entity) throw new Error(`Cannot get, Item ${entityId} of type: ${entityType} does not exist`)
+    const entity = entities.find(entity => entity.urlName === entityUrlName)
+    if (!entity) throw new Error(`Cannot get, Item ${entityUrlName} of type: ${entityType} does not exist`)
     return entity;
 }
 

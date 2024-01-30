@@ -1,22 +1,23 @@
 
-interface Cmp {
+export interface Cmp {
     _id: string
     type: string
     info: { [key: string]: any }
     style: { [key: string]: any }
 }
 
-interface Column {
+export interface Column {
     _id: string
     cmps: Cmp[]
 }
 
-interface Container {
+export interface Container {
     _id: string
     columns: Column[]
 }
 
-interface WebsiteRoute {
+export interface WebsiteRoute {
+    urlName: string
     name: string
     containers: Container[]
 }
@@ -24,8 +25,9 @@ interface WebsiteRoute {
 export interface Website {
     _id: string
     name: string
+    urlName: string
     userId: string
-
+    defaultRoute: string
     header: Container
     routes: WebsiteRoute[]
     footer: Container
