@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform, inject } from '@angular/core';
-import { WebsiteRoute } from '../models/website.model';
+import { Website, WebsiteRoute } from '../models/website.model';
 import { Router } from '@angular/router';
 
 @Pipe({
@@ -7,12 +7,13 @@ import { Router } from '@angular/router';
   standalone: true
 })
 export class FindRoutePipe implements PipeTransform {
+  constructor( private router : Router){}
 
-  transform(routes: WebsiteRoute[], urlName: string, routeName: string): WebsiteRoute {
-    const route = routes.find(route => route.urlName === routeName);
+  transform(website: Website, routeName: string): WebsiteRoute {
+    const route = website.routes.find(route => route.urlName === routeName);
     if (route) return route
     else {
-      inject(Router).navigate(['/', urlName, routeName])
+      this.router.navigate([ website.urlName, website.defaultRoute])
       // return new WebsiteRoute;
       throw new Error('Route not found');
     }
