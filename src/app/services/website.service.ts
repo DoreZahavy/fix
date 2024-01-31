@@ -134,7 +134,7 @@ export class WebsiteService {
                   _id: '1',
                   type: 'txt',
                   info: {
-                    text: 'Sample text'
+                    txt: 'Sample text'
                   },
                   style: {
                     fontSize: '16px',
@@ -143,9 +143,9 @@ export class WebsiteService {
                 },
                 {
                   _id: '2',
-                  type: 'image',
+                  type: 'img',
                   info: {
-                    src: 'path/to/image.jpg',
+                    src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                     alt: 'Sample image'
                   },
                   style: {
@@ -171,7 +171,7 @@ export class WebsiteService {
                       _id: '1',
                       type: 'txt',
                       info: {
-                        text: 'Sample text'
+                        txt: 'Sample text'
                       },
                       style: {
                         fontSize: '16px',
@@ -180,9 +180,42 @@ export class WebsiteService {
                     },
                     {
                       _id: '2',
-                      type: 'image',
+                      type: 'img',
                       info: {
-                        src: 'path/to/image.jpg',
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              _id: 'herheh',
+              columns: [
+                {
+                  _id: '235ehe235',
+                  cmps: [
+                    {
+                      _id: '1',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
+                      },
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
+                      }
+                    },
+                    {
+                      _id: 'herfdgb2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                         alt: 'Sample image'
                       },
                       style: {
@@ -199,40 +232,156 @@ export class WebsiteService {
           {
             name: 'home',
             urlName: 'home',
-            containers: [
-              {
-                _id: 'sdgsdgsd',
-                columns: [
-                  {
-                    _id: '235235',
-                    cmps: [
-                      {
-                        _id: '1',
-                        type: 'txt',
-                        info: {
-                          text: 'Sample text'
-                        },
-                        style: {
-                          fontSize: '16px',
-                          color: '#000000'
-                        }
+            containers:[{
+              _id: 'sdgsdgsd',
+              columns: [
+                {
+                  _id: '2357jkthe235',
+                  cmps: [
+                    {
+                      _id: '1rdh',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
                       },
-                      {
-                        _id: '2',
-                        type: 'image',
-                        info: {
-                          src: 'path/to/image.jpg',
-                          alt: 'Sample image'
-                        },
-                        style: {
-                          width: '100%',
-                          height: 'auto'
-                        }
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
                       }
-                    ]
-                  }
-                ]
-              }
+                    },
+                    {
+                      _id: 'heresgdgb2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                },
+                {
+                  _id: '235sg235',
+                  cmps: [
+                    {
+                      _id: '1',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
+                      },
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
+                      }
+                    },
+                    {
+                      _id: '2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              _id: 'hg4eheh',
+              columns: [
+                {
+                  _id: '235etym235',
+                  cmps: [
+                    {
+                      _id: '1',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
+                      },
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
+                      }
+                    },
+                    {
+                      _id: 'heh5dgb2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                },
+                {
+                  _id: '235t4235',
+                  cmps: [
+                    {
+                      _id: '1',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
+                      },
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
+                      }
+                    },
+                    {
+                      _id: 'herferhb2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                },
+                {
+                  _id: '23ntre235',
+                  cmps: [
+                    {
+                      _id: '1',
+                      type: 'txt',
+                      info: {
+                        txt: 'Sample text'
+                      },
+                      style: {
+                        fontSize: '16px',
+                        color: '#000000'
+                      }
+                    },
+                    {
+                      _id: 'hey54gb2',
+                      type: 'img',
+                      info: {
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
+                        alt: 'Sample image'
+                      },
+                      style: {
+                        width: '100%',
+                        height: 'auto'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
             ]
           }]
         ,
@@ -249,7 +398,7 @@ export class WebsiteService {
                   _id: '1',
                   type: 'txt',
                   info: {
-                    text: 'Sample text'
+                    txt: 'Sample text'
                   },
                   style: {
                     fontSize: '16px',
@@ -258,9 +407,9 @@ export class WebsiteService {
                 },
                 {
                   _id: '2',
-                  type: 'image',
+                  type: 'img',
                   info: {
-                    src: 'path/to/image.jpg',
+                    src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                     alt: 'Sample image'
                   },
                   style: {
@@ -291,7 +440,7 @@ export class WebsiteService {
                   _id: 'dfhd',
                   type: 'txt',
                   info: {
-                    text: 'Sample text'
+                    txt: 'Sample text'
                   },
                   style: {
                     fontSize: '16px',
@@ -300,9 +449,9 @@ export class WebsiteService {
                 },
                 {
                   _id: '2',
-                  type: 'image',
+                  type: 'img',
                   info: {
-                    src: 'path/to/image.jpg',
+                    src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                     alt: 'Sample image'
                   },
                   style: {
@@ -328,7 +477,7 @@ export class WebsiteService {
                       _id: '1',
                       type: 'txt',
                       info: {
-                        text: 'Sample text'
+                        txt: 'Sample text'
                       },
                       style: {
                         fontSize: '16px',
@@ -337,9 +486,9 @@ export class WebsiteService {
                     },
                     {
                       _id: '2',
-                      type: 'image',
+                      type: 'img',
                       info: {
-                        src: 'path/to/image.jpg',
+                        src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                         alt: 'Sample image'
                       },
                       style: {
@@ -367,7 +516,7 @@ export class WebsiteService {
                         _id: '1',
                         type: 'txt',
                         info: {
-                          text: 'Sample text'
+                          txt: 'Sample text'
                         },
                         style: {
                           fontSize: '16px',
@@ -376,9 +525,9 @@ export class WebsiteService {
                       },
                       {
                         _id: '2',
-                        type: 'image',
+                        type: 'img',
                         info: {
-                          src: 'path/to/image.jpg',
+                          src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                           alt: 'Sample image'
                         },
                         style: {
@@ -406,7 +555,7 @@ export class WebsiteService {
                   _id: '1',
                   type: 'txt',
                   info: {
-                    text: 'Sample text'
+                    txt: 'Sample text'
                   },
                   style: {
                     fontSize: '16px',
@@ -415,9 +564,9 @@ export class WebsiteService {
                 },
                 {
                   _id: '2',
-                  type: 'image',
+                  type: 'img',
                   info: {
-                    src: 'path/to/image.jpg',
+                    src: 'https://res.cloudinary.com/dbdrnjhpm/image/upload/v1705694894/rnr_wnamo4.jpg',
                     alt: 'Sample image'
                   },
                   style: {

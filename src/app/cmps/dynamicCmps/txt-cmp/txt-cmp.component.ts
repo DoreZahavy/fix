@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cmp } from '../../../models/website.model';
 
 @Component({
   selector: 'txt-cmp',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './txt-cmp.component.scss'
 })
 export class TxtCmpComponent {
-
+  @Input() cmp!:Cmp 
 }

@@ -16,5 +16,5 @@ import { VideoCmpComponent } from '../dynamicCmps/video-cmp/video-cmp.component'
   styleUrl: './column.component.scss'
 })
 export class ColumnComponent {
-  @Input() 'column': Column
+  @Input() column!: Column
 }

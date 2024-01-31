@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cmp } from '../../../models/website.model';
 
 @Component({
   selector: 'img-cmp',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './img-cmp.component.scss'
 })
 export class ImgCmpComponent {
-
+@Input() cmp!:Cmp 
 }

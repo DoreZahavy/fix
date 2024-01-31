@@ -12,6 +12,6 @@ import { ColumnComponent } from '../column/column.component';
   styleUrl: './container.component.scss'
 })
 export class ContainerComponent {
-  @Input() 'container': Container 
+  @Input() container!: Container 
 
 }

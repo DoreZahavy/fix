@@ -11,6 +11,6 @@ import { ContainerComponent } from '../container/container.component';
   styleUrl: './website-route.component.scss'
 })
 export class WebsiteRouteComponent {
-  @Input() 'route' :WebsiteRoute
+  @Input() route! :WebsiteRoute
 
 }
