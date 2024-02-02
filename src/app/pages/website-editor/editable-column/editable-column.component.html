@@ -1,0 +1,29 @@
+<p>column works!</p>
+<!-- <div>{{ column | json }}</div> -->
+@for (cmp of column.cmps;track cmp._id){
+<!-- <ng-container *[ngComponentOutlet]="cmp.type + '-cmp';"/> -->
+<!-- <ng-container *ngTemplateOutlet="cmp.type | getTemplateRef"></ng-container> -->
+<!-- <ng-container *ngTemplateOutlet="txt"></ng-container> -->
+@switch (cmp.type) { @case ('img') {
+<editable-img [cmp]="cmp" />
+} @case ('form') {
+<editable-form [cmp]="cmp" />
+} @case ('txt') {
+<editable-txt [cmp]="cmp" />
+<!-- } @case ('icon') {
+<editable-icon-bar [cmp]="cmp" />
+} @case ('link') {
+<editable-nav-bar [cmp]="cmp" /> -->
+} @case ('video') {
+<editable-video [cmp]="cmp" />
+}
+<!-- @default {
+          Default case.
+        } -->
+} }
+<!-- <ng-template #txt><txt-cmp/></ng-template>
+<ng-template #form><form-cmp/></ng-template>
+<ng-template #img><img-cmp/></ng-template>
+<ng-template #icon><icon-cmp/></ng-template>
+<ng-template #link><link-cmp/></ng-template>
+<ng-template #video><video-cmp/></ng-template> -->

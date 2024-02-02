@@ -2,10 +2,10 @@ import { Component, inject } from '@angular/core';
 import { WebsiteService } from '../../services/website.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap, tap } from 'rxjs';
-import { EditorHeaderComponent } from '../../cmps/editor/editor-header/editor-header.component';
+import { EditorHeaderComponent } from './editor-header/editor-header.component';
 import { CommonModule } from '@angular/common';
-import { LeftSidebarComponent } from '../../cmps/editor/left-sidebar/left-sidebar.component';
-import { EditableWebsiteComponent } from '../../cmps/editor/editable-website/editable-website.component';
+import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
+import { EditableWebsiteComponent } from './editable-website/editable-website.component';
 
 @Component({
   selector: 'website-editor',

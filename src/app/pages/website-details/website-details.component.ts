@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map, switchMap, take, tap } from 'rxjs';
 import { WebsiteService } from '../../services/website.service';
 import { CommonModule, JsonPipe } from '@angular/common';
-import { ContainerComponent } from '../../cmps/container/container.component';
-import { WebsiteRouteComponent } from '../../cmps/website-route/website-route.component';
+import { ContainerComponent } from './container/container.component';
+import { WebsiteRouteComponent } from './website-route/website-route.component';
 import { FindRoutePipe } from '../../pipes/find-route.pipe';
 
 @Component({
