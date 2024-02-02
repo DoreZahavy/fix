@@ -1,0 +1,7 @@
+:host {
+    grid-area: sidebar-area;
+    outline: 1px solid red;
+    position: sticky;
+    height: calc(100dvh - 96px);
+    top: 96px;
+}

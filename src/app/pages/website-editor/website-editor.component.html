@@ -1,1 +1,6 @@
-<p>website-editor works!</p>
+<editor-header />
+<left-sidebar />
+@if(website(); as website){
+
+    <editable-website [website]="website" [routeName]="routeName"/>
+}

@@ -1,0 +1,6 @@
+:host {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    justify-items: center;
+    outline: 1px solid blue;
+}

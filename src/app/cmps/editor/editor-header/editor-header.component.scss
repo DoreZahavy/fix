@@ -1,0 +1,16 @@
+:host {
+    grid-area: header-area;
+    position: sticky;
+    top: 0;
+    outline: 1px solid orange;
+    .header-top{
+        display: flex;
+        align-items: center;
+        height: 48px;
+    }
+    .header-bottom{
+        display: flex;
+        align-items: center;
+        height: 48px;
+    }
+}

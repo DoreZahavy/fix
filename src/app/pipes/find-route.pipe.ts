@@ -7,16 +7,17 @@ import { Router } from '@angular/router';
   standalone: true
 })
 export class FindRoutePipe implements PipeTransform {
-  constructor( private router : Router){}
+  constructor(private router: Router) { }
 
-  transform(website: Website, routeName: string): WebsiteRoute {
-    const route = website.routes.find(route => route.urlName === routeName);
+  transform(routes: WebsiteRoute[], routeName: string): WebsiteRoute {
+    const route = routes.find(route => route.urlName === routeName);
+    // return route
     if (route) return route
-    else {
-      this.router.navigate([ website.urlName, website.defaultRoute])
-      // return new WebsiteRoute;
-      throw new Error('Route not found');
-    }
+    // else {
+    // return website.routes.find(route => route.urlName === website.defaultRoute)
+    //   this.router.navigate([ website.urlName, website.defaultRoute])
+    else throw new Error('Route not found');
+    // }
   }
 
 }

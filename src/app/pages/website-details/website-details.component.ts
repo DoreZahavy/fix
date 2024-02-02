@@ -15,7 +15,7 @@ import { FindRoutePipe } from '../../pipes/find-route.pipe';
   styleUrl: './website-details.component.scss'
 })
 export class WebsiteDetailsComponent implements OnInit {
-  // router = inject(Router)
+  router = inject(Router)
   websiteService = inject(WebsiteService)
   activatedRoute = inject(ActivatedRoute)
   website = this.websiteService.website
@@ -28,7 +28,14 @@ export class WebsiteDetailsComponent implements OnInit {
         if(params['route']) this.routeName = params['route']
       console.log('params.route',this.routeName)}),
       map(params => params['name']),
-      switchMap(name => this.websiteService.getByName(name))
+      switchMap(name => this.websiteService.getByName(name)),
+      //
+      tap(website => {
+        if (website.routes.every(route=>route.urlName !== this.routeName)){
+          this.router.navigate([website.urlName,website.defaultRoute])
+        }
+      })
+      //
     ).subscribe({
       next: website => console.log('website fetched:', website.name),
       error: err => console.log('err:', err)
