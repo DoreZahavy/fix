@@ -1,5 +1,7 @@
 :host {
     // z-index: 2;
+    display: grid;
+    grid-auto-flow: column;
     grid-area: sidebar-area;
     position: sticky;
     height: calc(100dvh - 96px);
