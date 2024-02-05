@@ -1,4 +1,8 @@
 
-  <div class="sidebar-icons"></div>
-  <div class="sidebar-expand"></div>
+  <div class="sidebar-icons">
+    <i (click)="onExpand('elements')" [getSvg]="'add-elements'" [ngClass]="sidebarExpand==='elements'? 'active':''"></i>
+    <i (click)="onExpand('sections')" [getSvg]="'add-section'" [ngClass]="sidebarExpand==='sections'? 'active':''"></i>
+    <i (click)="onExpand('pages')" [getSvg]="'pages'" [ngClass]="sidebarExpand==='pages'? 'active':''"></i>
+  </div>
+  <div class="sidebar-expand" [ngClass]="sidebarExpand? 'expand':''"></div>
 
