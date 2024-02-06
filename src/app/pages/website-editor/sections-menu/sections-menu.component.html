@@ -1,1 +1,25 @@
-<p>sections-menu works!</p>
+<header class="sections-header">
+    <h3>Add Section</h3>
+    <span (click)="close.emit()">X</span>
+  </header>
+  <section class="tabs">
+    <ul class="clean-list">
+      <li>Welome</li>
+      <li>About</li>
+      <li>Team</li>
+      <li>Contact</li>
+      <li>Features</li>
+      <li>Business info</li>
+      <li>Services</li>
+      <li>Subscribe</li>
+      <li>Testimonials</li>
+      <li>Clients</li>
+    </ul>
+  </section>
+  <section class="sections" id="sections" cdkDropList [cdkDropListData]="templates" [cdkDropListEnterPredicate]="predicate">
+    @for(template of templates; track template._id){
+  
+    <div cdkDrag [cdkDragData]="template">1</div>
+   
+    }
+  </section>

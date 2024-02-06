@@ -125,6 +125,7 @@ export class WebsiteService {
         userId: 'doreZ',
         defaultRoute:'home',
         header: {
+          type:'header',
           _id: 'sdgsdgsd',
           columns: [
             {
@@ -162,6 +163,7 @@ export class WebsiteService {
             name: 'about',
             urlName: 'about',
             containers: [{
+              type:'container',
               _id: 'sdgsdgsd',
               columns: [
                 {
@@ -196,6 +198,7 @@ export class WebsiteService {
             },
             {
               _id: 'herheh',
+              type:'container',
               columns: [
                 {
                   _id: '235ehe235',
@@ -234,6 +237,7 @@ export class WebsiteService {
             urlName: 'home',
             containers:[{
               _id: 'sdgsdgsd',
+              type:'container',
               columns: [
                 {
                   _id: '2357jkthe235',
@@ -295,6 +299,7 @@ export class WebsiteService {
             },
             {
               _id: 'hg4eheh',
+              type:'container',
               columns: [
                 {
                   _id: '235etym235',
@@ -388,7 +393,7 @@ export class WebsiteService {
         footer: {
 
           _id: 'sdgsdgsd',
-
+          type:'footer',
 
           columns: [
             {
@@ -431,6 +436,7 @@ export class WebsiteService {
         defaultRoute:'about',
         userId: 'moishesdsdg',
         header: {
+          type:'header',
           _id: 'thrth',
           columns: [
             {
@@ -468,6 +474,7 @@ export class WebsiteService {
             name: 'about',
             urlName: 'about',
             containers: [{
+              type:'container',
               _id: 'sdgsdgsd',
               columns: [
                 {
@@ -508,6 +515,7 @@ export class WebsiteService {
             containers: [
               {
                 _id: 'sdgsdgsd',
+                type:'container',
                 columns: [
                   {
                     _id: '235235',
@@ -543,6 +551,7 @@ export class WebsiteService {
           }]
         ,
         footer: {
+          type:'footer',
 
           _id: 'sdgsdgsd',
 

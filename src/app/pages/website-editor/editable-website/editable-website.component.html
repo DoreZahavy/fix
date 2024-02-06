@@ -1,5 +1,6 @@
 <editable-container [container]="website.header" />
 
-<editable-route  [route]="website.routes | findRoute : routeName" />
+<editable-route  [route]="website.routes | findRoute : routeName" 
+[dragType]="dragType"/>
 
 <editable-container [container]="website.footer" />

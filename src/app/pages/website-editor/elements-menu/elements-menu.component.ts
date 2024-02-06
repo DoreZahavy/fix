@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { EditableTxtComponent } from '../editable-cmps/editable-txt/editable-txt.component';
 import { CdkDrag, CdkDragDrop, CdkDragMove, DragDropModule,CdkDragExit } from '@angular/cdk/drag-drop';
 import { Cmp } from '../../../models/website.model';
@@ -11,6 +11,8 @@ import { Cmp } from '../../../models/website.model';
   styleUrl: './elements-menu.component.scss'
 })
 export class ElementsMenuComponent {
+  @Output() close = new EventEmitter()
+  
   templates :Cmp[] = [
     { _id: '123', type: 'txt', info: { txt: 'sample drag' }, style: {} },
     { _id: '12erg3', type: 'txt', info: { txt: 'sample drag2' }, style: {} },

@@ -1,11 +1,15 @@
+<header class="elements-header">
+  <h3>Add Elements</h3>
+  <span (click)="close.emit()">X</span>
+</header>
 <section class="tabs">
-  <ul>
-    <li><button>Text</button></li>
-    <li><button>Buttons</button></li>
-    <li><button>Forms</button></li>
-    <li><button>Menus</button></li>
-    <li><button>Social</button></li>
-    <li><button>Map & Video</button></li>
+  <ul class="clean-list">
+    <li>Text</li>
+    <li>Buttons</li>
+    <li>Forms</li>
+    <li>Menus</li>
+    <li>Social</li>
+    <li>Map & Video</li>
   </ul>
 </section>
 <section class="elements" id="elements" cdkDropList [cdkDropListData]="templates" [cdkDropListEnterPredicate]="predicate">

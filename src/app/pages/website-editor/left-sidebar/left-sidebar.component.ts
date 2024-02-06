@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { GetSvgDirective } from '../../../directives/get-svg.directive';
 import { CommonModule } from '@angular/common';
 import { PagesMenuComponent } from '../pages-menu/pages-menu.component';
@@ -13,9 +13,11 @@ import { SectionsMenuComponent } from '../sections-menu/sections-menu.component'
   styleUrl: './left-sidebar.component.scss'
 })
 export class LeftSidebarComponent {
+  @Output() dragtype = new EventEmitter()
   sidebarExpand = ''
 
-  onExpand(tab:string){
+  onSetExpand(tab:string){
     this.sidebarExpand = tab
+    this.dragtype.emit(tab)
   }
 }

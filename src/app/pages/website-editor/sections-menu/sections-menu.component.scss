@@ -1,0 +1,28 @@
+:host{
+    display: grid;
+    grid-template-columns: 150px 1fr ;
+    grid-template-rows: 55px 1fr;
+    grid-template-areas: 
+    "sections-header sections-header"
+    "tabs sections";
+    height: 100%;
+   .sections-header{
+    grid-area: sections-header;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline-start: 24px;
+    padding-inline-end: 9px;
+    border-top: 6px solid #6f56f9;
+    border-bottom: 1px solid #dfe5eb;
+   }
+   .tabs{
+    grid-area: tabs;
+    background-color: #f7f8f8;
+   }
+   .sections{
+    grid-area: sections;
+
+   }
+}

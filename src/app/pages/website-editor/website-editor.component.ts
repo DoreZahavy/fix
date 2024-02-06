@@ -21,6 +21,7 @@ export class WebsiteEditorComponent {
   activatedRoute = inject(ActivatedRoute)
   website = this.websiteService.website
   routeName = ''
+  dragType = ''
   ngOnInit(): void {
     // this.router.routerState.snapshot.
     this.activatedRoute.params.pipe(
@@ -35,6 +36,10 @@ export class WebsiteEditorComponent {
       next: website => console.log('website fetched:', website.name),
       error: err => console.log('err:', err)
     })
+  }
+
+  onSetDragType(dragType :string){
+    this.dragType = dragType
   }
 
   onSaveWebsite(ev : MouseEvent) {

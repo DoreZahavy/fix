@@ -1,7 +1,26 @@
-:host{
-    .cdk-drag-preview{
-        color: blue;
-        position: fixed !important;
-  z-index: 1000;
+:host {
+    display: grid;
+    grid-template-areas:
+        "elements-header elements-header"
+        "tabs elements";
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 55px 1fr;
+    height: 100%;
+    .elements-header {
+        grid-area: elements-header;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline-start: 12px;
+        padding-inline-end: 9px;
+        border-top: 6px solid #116dff;
+        border-bottom: 1px solid #dfe5eb;
+    }
+    .tabs {
+        grid-area: tabs;
+        background-color: #f7f8f8;
+    }
+    .elements {
+        grid-area: elements;
     }
 }

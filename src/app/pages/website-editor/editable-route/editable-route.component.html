@@ -1,3 +1,26 @@
-@for (container of route.containers; track container._id){
-<editable-container [container]="container" ></editable-container>
+<!-- [cdkDropListEnterPredicate]="containerPredicate" -->
+@if(dragType === 'sections'){
+
+    <section cdkDropList
+    (cdkDropListDropped)="onDropContainer($event)"
+    [cdkDropListData]="route.containers"
+   >
+      @for (container of route.containers; track container._id){
+      <editable-container
+        [container]="container"
+        cdkDrag
+        [cdkDragData]="container"
+      ></editable-container>
+      }
+    </section>
+} @else {
+    <section >
+      @for (container of route.containers; track container._id){
+      <editable-container
+        [container]="container"
+        cdkDrag
+        [cdkDragData]="container"
+      ></editable-container>
+      }
+    </section>
 }

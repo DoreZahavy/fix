@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Cmp, Container } from '../../../models/website.model';
 import { EditableColumnComponent } from '../editable-column/editable-column.component';
-import { CdkDragDrop, DragDropModule, copyArrayItem, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, DragDropModule, copyArrayItem, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'editable-container',
@@ -36,6 +36,9 @@ export class EditableContainerComponent {
 
     }
 
+  }
+  elementPredicate(item : CdkDrag<any>){
+    return item.data['type'] !== 'container';
   }
 }
 

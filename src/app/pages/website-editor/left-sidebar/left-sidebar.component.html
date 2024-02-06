@@ -1,26 +1,26 @@
 <div class="sidebar-icons">
   <i
-    (click)="onExpand('elements')"
+    (click)="onSetExpand('elements')"
     [getSvg]="'add-elements'"
     [ngClass]="sidebarExpand === 'elements' ? 'active' : ''"
   ></i>
   <i
-    (click)="onExpand('sections')"
+    (click)="onSetExpand('sections')"
     [getSvg]="'add-section'"
     [ngClass]="sidebarExpand === 'sections' ? 'active' : ''"
   ></i>
   <i
-    (click)="onExpand('pages')"
+    (click)="onSetExpand('pages')"
     [getSvg]="'pages'"
     [ngClass]="sidebarExpand === 'pages' ? 'active' : ''"
   ></i>
 </div>
 <div class="sidebar-expand" [ngClass]="sidebarExpand ? 'expand' : ''">
   @switch (sidebarExpand) { @case('elements'){
-  <elements-menu />
+  <elements-menu (close)="onSetExpand('')"/>
   } @case('sections'){
-  <sections-menu />
+  <sections-menu (close)="onSetExpand('')"/>
   } @case('pages'){
-  <pages-menu />
+  <pages-menu (close)="onSetExpand('')"/>
   } }
 </div>

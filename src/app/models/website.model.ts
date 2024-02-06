@@ -12,6 +12,7 @@ export interface Column {
 }
 
 export interface Container {
+    type: string
     _id: string
     columns: Column[]
 }
