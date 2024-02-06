@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Container, WebsiteRoute } from '../../../models/website.model';
 import { EditableContainerComponent } from '../editable-container/editable-container.component';
 import { CdkDrag, CdkDragDrop, CdkDragEnter, CdkDropList, CdkDropListGroup, DragDropModule, copyArrayItem, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
@@ -12,9 +12,8 @@ import { CdkDrag, CdkDragDrop, CdkDragEnter, CdkDropList, CdkDropListGroup, Drag
 export class EditableRouteComponent {
 @Input() route!: WebsiteRoute
 @Input() dragType!: string
-
-
-containerDropEnabled = true;
+@Output() dropCmp = new EventEmitter()
+@Output() dropContainer = new EventEmitter()
 
 
 

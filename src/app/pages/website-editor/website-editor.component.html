@@ -1,9 +1,15 @@
 <main cdkDropListGroup>
+  <editor-header (save)="onSaveWebsite($event)" />
+  <left-sidebar (dragtype)="onSetDragType($event)" />
+  
+  @if(website(); as website){
 
-    <editor-header (save)="onSaveWebsite($event)"/>
-    <left-sidebar (dragtype)="onSetDragType($event)"/>
-    @if(website(); as website){
-        
-        <editable-website [website]="website" [routeName]="routeName" [dragType]="dragType"/>
-    }
+  <editable-website
+    [website]="website"
+    [routeName]="routeName"
+    [dragType]="dragType"
+    (dropCmp)="onDropCmp($event)"
+    (dropContainer)="onDropContainer($event)"
+  />
+  }
 </main>

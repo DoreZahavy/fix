@@ -1,6 +1,9 @@
-<editable-container [container]="website.header" />
+<editable-container [container]="website.header" (dropCmp)="dropCmp.emit($event)"/>
 
 <editable-route  [route]="website.routes | findRoute : routeName" 
-[dragType]="dragType"/>
+[dragType]="dragType"
+(dropCmp)="dropCmp.emit($event)"
+(dropContainer)="dropContainer.emit($event)"
+/>
 
-<editable-container [container]="website.footer" />
+<editable-container [container]="website.footer" (dropCmp)="dropCmp.emit($event)"/>

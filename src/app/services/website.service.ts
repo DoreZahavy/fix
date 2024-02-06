@@ -249,8 +249,8 @@ export class WebsiteService {
                         txt: 'Sample text'
                       },
                       style: {
-                        fontSize: '16px',
-                        color: '#000000'
+                        fontSize: '18px',
+                        color: '#c000f0'
                       }
                     },
                     {
@@ -527,8 +527,8 @@ export class WebsiteService {
                           txt: 'Sample text'
                         },
                         style: {
-                          fontSize: '16px',
-                          color: '#000000'
+                          fontSize: '18px',
+                          color: '#c00e00'
                         }
                       },
                       {

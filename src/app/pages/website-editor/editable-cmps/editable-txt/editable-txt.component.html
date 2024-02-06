@@ -1,1 +1,15 @@
-<p >{{cmp.info['txt']}}</p>
+<!-- <p >{{cmp.info['txt']}}</p> -->
+<p [ngStyle]="cmp.style"
+(click)="overlayOpen = !overlayOpen"
+cdkOverlayOrigin
+#overlay="cdkOverlayOrigin"
+[class.open]="overlayOpen"
+>{{cmp.info['txt']}}</p>
+
+<ng-template cdkConnectedOverlay
+[cdkConnectedOverlayOrigin]="overlay"
+[cdkConnectedOverlayOpen]="overlayOpen"
+(overlayOutsideClick)="overlayOpen=false">
+
+<input type="text" (change)="onDo($event)">
+</ng-template>

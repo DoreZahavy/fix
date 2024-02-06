@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cmp, Container } from '../../../models/website.model';
 import { EditableColumnComponent } from '../editable-column/editable-column.component';
 import { CdkDrag, CdkDragDrop, DragDropModule, copyArrayItem, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
@@ -12,6 +12,8 @@ import { CdkDrag, CdkDragDrop, DragDropModule, copyArrayItem, moveItemInArray, t
 })
 export class EditableContainerComponent {
   @Input() container!: Container
+  @Output() dropCmp = new EventEmitter()
+
   onDropCmp(ev: CdkDragDrop<Cmp[]>) {
     console.log(ev)
     if (ev.previousContainer === ev.container) {

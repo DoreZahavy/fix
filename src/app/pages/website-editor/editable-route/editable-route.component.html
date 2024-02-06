@@ -1,8 +1,9 @@
 <!-- [cdkDropListEnterPredicate]="containerPredicate" -->
+<!-- (cdkDropListDropped)="onDropContainer($event)" -->
 @if(dragType === 'sections'){
 
     <section cdkDropList
-    (cdkDropListDropped)="onDropContainer($event)"
+    (cdkDropListDropped)="dropContainer.emit($event)"
     [cdkDropListData]="route.containers"
    >
       @for (container of route.containers; track container._id){
@@ -20,6 +21,7 @@
         [container]="container"
         cdkDrag
         [cdkDragData]="container"
+        (dropCmp)="dropCmp.emit($event)"
       ></editable-container>
       }
     </section>

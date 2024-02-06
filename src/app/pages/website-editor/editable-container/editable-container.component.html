@@ -2,8 +2,9 @@
 <editable-column
   [column]="column"
   cdkDropList
-  (cdkDropListDropped)="onDropCmp($event)"
+  (cdkDropListDropped)="dropCmp.emit($event)"
   [cdkDropListData]="column.cmps"
   [cdkDropListEnterPredicate]="elementPredicate"
-/>
+  />
 }
+<!-- (cdkDropListDropped)="onDropCmp($event)" -->
