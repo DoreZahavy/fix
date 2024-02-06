@@ -7,11 +7,12 @@ import { EditableVideoComponent } from '../editable-cmps/editable-video/editable
 import { EditableMapComponent } from '../editable-cmps/editable-map/editable-map.component';
 import { EditableIconBarComponent } from '../editable-cmps/editable-icon-bar/editable-icon-bar.component';
 import { EditableNavBarComponent } from '../editable-cmps/editable-nav-bar/editable-nav-bar.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'editable-column',
   standalone: true,
-  imports: [EditableNavBarComponent,EditableIconBarComponent,EditableMapComponent,EditableImgComponent,EditableFormComponent,EditableTxtComponent,EditableVideoComponent],
+  imports: [EditableNavBarComponent,EditableIconBarComponent,EditableMapComponent,EditableImgComponent,EditableFormComponent,DragDropModule,EditableTxtComponent,EditableVideoComponent],
   templateUrl: './editable-column.component.html',
   styleUrl: './editable-column.component.scss'
 })

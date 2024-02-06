@@ -17,10 +17,10 @@ export class GetSvgDirective implements OnInit {
   private svgService = inject(SvgService)
   
   loadSvg() {
-    console.log("🚀 ~ GetSvgDirective ~ svgName:", this.svgName)
+    // console.log("🚀 ~ GetSvgDirective ~ svgName:", this.svgName)
     this.svgService.getSvg(this.svgName).pipe(take(1)).subscribe({
       next: (svgContent: string) => {
-        console.log("🚀 ~ GetSvgDirective ~ this.svgService.getSvg ~ svgContent:", svgContent)
+        // console.log("🚀 ~ GetSvgDirective ~ this.svgService.getSvg ~ svgContent:", svgContent)
         this.elementRef.nativeElement.innerHTML = svgContent;
       },
       error: (err) => {

@@ -1,6 +1,9 @@
-<editor-header />
-<left-sidebar />
-@if(website(); as website){
+<main cdkDropListGroup>
 
-    <editable-website [website]="website" [routeName]="routeName"/>
-}
+    <editor-header (save)="onSaveWebsite($event)"/>
+    <left-sidebar />
+    @if(website(); as website){
+        
+        <editable-website [website]="website" [routeName]="routeName" />
+    }
+</main>

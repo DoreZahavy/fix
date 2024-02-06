@@ -6,11 +6,13 @@ import { EditorHeaderComponent } from './editor-header/editor-header.component';
 import { CommonModule } from '@angular/common';
 import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { EditableWebsiteComponent } from './editable-website/editable-website.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { Website } from '../../models/website.model';
 
 @Component({
   selector: 'website-editor',
   standalone: true,
-  imports: [EditorHeaderComponent,CommonModule,LeftSidebarComponent,EditableWebsiteComponent],
+  imports: [DragDropModule,EditorHeaderComponent,CommonModule,LeftSidebarComponent,EditableWebsiteComponent],
   templateUrl: './website-editor.component.html',
   styleUrl: './website-editor.component.scss'
 })
@@ -33,6 +35,13 @@ export class WebsiteEditorComponent {
       next: website => console.log('website fetched:', website.name),
       error: err => console.log('err:', err)
     })
+  }
+
+  onSaveWebsite(ev : MouseEvent) {
+    // console.log("🚀 ~ WebsiteEditorComponent ~ onSaveWebsite ~ ev:", ev)
+    // console.log(this.website());
+    
+    this.websiteService.save(this.website() as Website  )
   }
 
 }

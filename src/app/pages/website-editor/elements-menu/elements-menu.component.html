@@ -1,1 +1,17 @@
-<p>elements-menu works!</p>
+<section class="tabs">
+  <ul>
+    <li><button>Text</button></li>
+    <li><button>Buttons</button></li>
+    <li><button>Forms</button></li>
+    <li><button>Menus</button></li>
+    <li><button>Social</button></li>
+    <li><button>Map & Video</button></li>
+  </ul>
+</section>
+<section class="elements" id="elements" cdkDropList [cdkDropListData]="templates" [cdkDropListEnterPredicate]="predicate">
+  @for(template of templates; track template._id){
+
+  <editable-txt cdkDrag [cdkDragData]="template" [cmp]="template"  >
+  </editable-txt>
+  }
+</section>

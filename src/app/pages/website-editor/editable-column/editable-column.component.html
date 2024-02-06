@@ -1,23 +1,23 @@
-<p>column works!</p>
+<!-- <p>column works!</p> -->
 <!-- <div>{{ column | json }}</div> -->
 @for (cmp of column.cmps;track cmp._id){
 <!-- <ng-container *[ngComponentOutlet]="cmp.type + '-cmp';"/> -->
 <!-- <ng-container *ngTemplateOutlet="cmp.type | getTemplateRef"></ng-container> -->
 <!-- <ng-container *ngTemplateOutlet="txt"></ng-container> -->
 @switch (cmp.type) { @case ('img') {
-<editable-img [cmp]="cmp" />
+<editable-img [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('form') {
-<editable-form [cmp]="cmp" />
+<editable-form [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('txt') {
-<editable-txt [cmp]="cmp" />
+<editable-txt [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('icon') {
-<editable-icon-bar [cmp]="cmp" />
+<editable-icon-bar [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('nav') {
-<editable-nav-bar [cmp]="cmp" />
+<editable-nav-bar [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('map') {
-<editable-map [cmp]="cmp" />
+<editable-map [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 } @case ('video') {
-<editable-video [cmp]="cmp" />
+<editable-video [cmp]="cmp" cdkDrag [cdkDragData]="cmp"/>
 }
 <!-- @default {
           Default case.

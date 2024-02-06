@@ -3,11 +3,12 @@ import { Website } from '../../../models/website.model';
 import { EditableContainerComponent } from '../editable-container/editable-container.component';
 import { FindRoutePipe } from '../../../pipes/find-route.pipe';
 import { EditableRouteComponent } from '../editable-route/editable-route.component';
+import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'editable-website',
   standalone: true,
-  imports: [EditableWebsiteComponent,EditableContainerComponent,FindRoutePipe,EditableRouteComponent],
+  imports: [EditableWebsiteComponent,EditableContainerComponent,FindRoutePipe,EditableRouteComponent,CdkDropListGroup],
   templateUrl: './editable-website.component.html',
   styleUrl: './editable-website.component.scss'
 })

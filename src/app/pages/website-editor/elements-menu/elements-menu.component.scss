@@ -1,0 +1,7 @@
+:host{
+    .cdk-drag-preview{
+        color: blue;
+        position: fixed !important;
+  z-index: 1000;
+    }
+}
