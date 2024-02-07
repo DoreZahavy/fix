@@ -15,7 +15,5 @@
   [cdkConnectedOverlayOpen]="overlayOpen"
   (overlayOutsideClick)="overlayOpen = false"
 >
-  <input type="text" [(ngModel)]="cmp.info['txt']" (change)="onDo($event)" />
-  <input type="number" [(ngModel)]="cmp.style['font-size.px']" (change)="onDo($event)" />
-  <input type="number" [(ngModel)]="cmp.style['margin-inline-start.em']" (change)="onDo($event)" />
+  <txt-dialog [cmp]="cmp"/>
 </ng-template>
